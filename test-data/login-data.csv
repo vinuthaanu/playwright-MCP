@@ -1,0 +1,4 @@
+scenario,username,password,expectedResult
+valid credentials,Admin,admin123,success
+invalid user name,Abcd,admin123,invalid
+invalid password,Admin,admin,invalid

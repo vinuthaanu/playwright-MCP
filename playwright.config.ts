@@ -24,8 +24,14 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
-    ['allure-playwright', { outputFolder: 'allure-results' }],
-  ],
+    ['allure-playwright', { 
+      outputFolder: 'allure-results',
+      // This environment object tells Allure to clean the results folder before writing new data
+      environment: {
+        CLEAN_RESULTS: 'true'
+      }
+    }]
+         ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */

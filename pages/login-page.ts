@@ -1,7 +1,11 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class LoginPage {
-  constructor(private readonly page: Page) {}
+  readonly invalidCredentialsMessage: Locator;
+
+  constructor(private readonly page: Page) {
+    this.invalidCredentialsMessage = page.getByText('Invalid credentials');
+  }
 
   async goto() {
     await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
